@@ -10,7 +10,9 @@ Game mô phỏng quyết định kinh tế bằng tiếng Việt, phục vụ đ
 - Không có thao tác vuốt. Phương án không tiết lộ trước mức tăng/giảm.
 - Sau mỗi lượt, thanh chỉ số hiển thị thay đổi thực tế, gồm cả hệ quả đến hạn.
 - Một số chính sách ảnh hưởng nhiều năm. Theo dõi định hướng và nhật ký để hiểu hệ quả.
-- Game tự lưu trong trình duyệt và có báo cáo cuối nhiệm kỳ.
+- Sau mỗi quyết định, năm nhóm lợi ích (công nhân, nông dân, trí thức – sinh viên, doanh nghiệp tư nhân, nhà đầu tư nước ngoài) bày tỏ ủng hộ hay phản đối. Mức ủng hộ tích lũy qua các lượt.
+- Nhiệm kỳ kết thúc khi đi hết 10 năm, khi một chỉ số khủng hoảng, khi mất lòng dân (từ năm thứ hai, lòng dân ≤40 trong hai lượt liên tiếp) hoặc khi người chơi từ chức.
+- Game tự lưu trong trình duyệt. Báo cáo cuối nhiệm kỳ mô tả tình hình kinh tế, xã hội, chính trị và quyết định gây tranh cãi nhất.
 
 ## Chạy trên máy
 
@@ -32,7 +34,7 @@ Cài Node.js rồi chạy từ thư mục dự án:
 node check.cjs
 ```
 
-Bộ kiểm tra bao gồm các phương án 2–4 lựa chọn, lưu và khôi phục, chính sách nhiều năm, hệ quả chậm, điều kiện kết thúc, hiển thị cộng/trừ sau lượt và 500 ván mô phỏng.
+Bộ kiểm tra bao gồm các phương án 2–4 lựa chọn, lưu và khôi phục, chính sách nhiều năm, hệ quả chậm, điều kiện kết thúc, hiển thị cộng/trừ sau lượt, phản ứng nhóm lợi ích, từ chức, mất lòng dân, chuyển đổi bản lưu cũ và 500 ván mô phỏng.
 
 ## Cấu trúc
 
@@ -41,6 +43,7 @@ Bộ kiểm tra bao gồm các phương án 2–4 lựa chọn, lưu và khôi p
 | `dist/index.html` | Giao diện trò chơi |
 | `dist/style.css` | Hệ thống màu, chữ và bố cục đáp ứng |
 | `dist/game.js` | Vòng chơi, trạng thái, lưu tiến trình và kết thúc |
+| `dist/groups.js` | Nhóm lợi ích, câu phản ứng và cách tính mức ủng hộ |
 | `dist/policies.js` | Dữ liệu tác động chính sách và hệ quả |
 | `dist/simple-decisions.js` | Câu hỏi dễ hiểu và các phương án bổ sung |
 | `PRODUCT.md` | Mục đích và yêu cầu sản phẩm |

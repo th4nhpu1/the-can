@@ -136,3 +136,30 @@ dialog ul{padding-left:18px}
 .card,.card:active{cursor:default;user-select:text;touch-action:auto}.choices button{grid-template-columns:24px minmax(0,1fr);align-items:center;gap:8px}.option-letter{font-size:11px;font-weight:700;border:1px solid currentColor;border-radius:50%;width:24px;height:24px;display:grid;place-items:center}.choices small{grid-column:2}.card-bottom svg{display:none}@media(max-width:600px){.choices{grid-template-columns:1fr}.choices button{min-height:70px;padding:14px 16px;font-size:13px}.choices small{margin-top:0}}
 
 .meter-delta{display:inline-block;margin-left:4px;font-size:11px;font-weight:700;font-variant-numeric:tabular-nums}.meter-delta.up{color:var(--ink)}.meter-delta.down{color:var(--red)}.meter-delta.neutral{color:var(--muted)}
+
+/* Interest groups: reactions after each decision and accumulated support. */
+.reactions{margin-top:26px;padding-top:18px;border-top:2px solid var(--ink)}
+.reactions-heading{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.reactions h2{font:600 19px/1.4 var(--font-title);margin:0}
+#popular{font-size:11px;white-space:nowrap}
+#popular strong{font-size:13px;font-variant-numeric:tabular-nums;margin-left:4px}
+#popular strong.warn{color:var(--red)}
+#groups-note{margin:4px 0 6px}
+#groups{list-style:none;padding:0;margin:0}
+#groups li{padding:11px 0;border-bottom:1px solid var(--line)}
+.group-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:13px}
+.group-head b{font-weight:700}
+.stance{font-size:11px;font-weight:700;white-space:nowrap}
+.stance.up{color:var(--ink)}.stance.down{color:var(--red)}.stance.neutral{color:var(--muted)}
+#groups p{margin:4px 0 6px;font:italic 13px/1.7 var(--font-title)}
+#groups p.group-role{font:400 11px/1.7 var(--font-body);color:var(--muted)}
+.support{display:grid;grid-template-columns:minmax(0,1fr) 26px;align-items:center;gap:8px}
+.support .meter-line{margin:0;height:4px}
+.support small{font-size:11px;text-align:right;font-variant-numeric:tabular-nums;color:var(--muted)}
+.reactions>.small:last-child{font-size:11px;margin:10px 0 0}
+.journal .log-groups{color:var(--ink)}
+.journal-actions{display:flex;gap:16px}
+.journal-actions .quiet{padding-left:0;color:var(--muted)}
+#restart{margin-top:10px}#resign{margin-top:10px}
+.groups-grid small{display:block;color:var(--muted);font-size:11px}
+@media(max-width:1100px){.journal-actions{grid-column:2;grid-row:6}}
