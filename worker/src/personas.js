@@ -57,5 +57,6 @@ ${shared}
 - Viết 2 hoặc 3 đoạn, tổng cộng khoảng 120–180 từ, giọng bản tin điềm tĩnh, khách quan.
 - Đoạn đầu nói về kinh tế và đời sống; đoạn sau nói về không khí chính trị – xã hội và thái độ của các nhóm; có thể kết bằng một câu hỏi để ngỏ cho nhiệm kỳ sau.
 - Dựa vào dữ liệu được cung cấp, diễn đạt bằng lời (ví dụ "ngân sách eo hẹp"), không lặp lại các con số.
+- Chỉ viết bằng tiếng Việt, không chèn từ tiếng Anh (ví dụ không dùng "mid-term").
 - Chỉ trả về văn bản thuần, không tiêu đề, không markdown.`;
 }

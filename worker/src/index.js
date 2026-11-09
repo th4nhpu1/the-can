@@ -44,7 +44,7 @@ ${past.length ? 'Những quyết định gần đây của người chơi:\n' + 
 [Câu hỏi của người chơi]
 `;
   const contents = messages.map((m, i) => ({ role: m.role, parts: [{ text: i === 0 ? context + m.text : m.text }] }));
-  return { system: chatSystemPrompt(p), contents, maxTokens: 400 };
+  return { system: chatSystemPrompt(p), contents, maxTokens: 1000 };
 }
 
 export function buildReport(body) {
@@ -57,13 +57,14 @@ Tình hình cuối nhiệm kỳ: ${statsLine(body.stats)}.
 Mức ủng hộ của các nhóm: ${support}.
 ${body.contested ? 'Quyết định gây tranh cãi nhất: ' + text(body.contested, 300) + '\n' : ''}Các quyết định gần nhất:
 ${decisions.join('\n') || '- (không có)'}`;
-  return { system: reportSystemPrompt(), contents: [{ role: 'user', parts: [{ text: prompt }] }], maxTokens: 900 };
+  return { system: reportSystemPrompt(), contents: [{ role: 'user', parts: [{ text: prompt }] }], maxTokens: 2000 };
 }
 
 async function callGemini(env, req) {
-  const model = env.GEMINI_MODEL || 'gemini-3.8-flash';
+  const model = env.GEMINI_MODEL || 'gemini-3.5-flash';
   const generationConfig = { temperature: 0.8, maxOutputTokens: req.maxTokens };
   if (env.GEMINI_THINKING_BUDGET !== undefined && env.GEMINI_THINKING_BUDGET !== '') generationConfig.thinkingConfig = { thinkingBudget: Number(env.GEMINI_THINKING_BUDGET) };
+  else if (env.GEMINI_THINKING_LEVEL) generationConfig.thinkingConfig = { thinkingLevel: env.GEMINI_THINKING_LEVEL };
   const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`, {
     method: 'POST',
     headers: { 'content-type': 'application/json', 'x-goog-api-key': env.GEMINI_API_KEY },

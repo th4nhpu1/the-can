@@ -48,7 +48,7 @@ Các biến nằm trong `[vars]` của `wrangler.toml`. Sửa xong thì chạy l
 
 | Biến | Ý nghĩa |
 | --- | --- |
-| `GEMINI_MODEL` | Tên mô hình Gemini, mặc định `gemini-3.8-flash` |
+| `GEMINI_MODEL` | Tên mô hình Gemini, mặc định `gemini-3.5-flash` |
 | `GEMINI_THINKING_BUDGET` | `0` tắt chế độ suy nghĩ để trả lời nhanh hơn; để trống nếu mô hình không hỗ trợ |
 | `ALLOWED_ORIGINS` | Các địa chỉ trang được gọi Worker, cách nhau bằng dấu phẩy |
 
