@@ -13,7 +13,7 @@ GEMINI_MODEL = "gemini-3.5-flash"
 # 0 turns off "thinking" on Gemini 2.5 models for faster, cheaper replies. Leave empty for models that do not support it (Gemini 3.x).
 GEMINI_THINKING_BUDGET = ""
 # For Gemini 3.x: "minimal" or "low" keeps replies fast and stops thinking tokens from cutting the answer short.
-GEMINI_THINKING_LEVEL = "low"
+GEMINI_THINKING_LEVEL = "medium"
 # Comma-separated list of sites allowed to call this Worker. Add the address where the game is hosted.
 ALLOWED_ORIGINS = "https://the-can-chia-banh.tealcargo.chatgpt.site,https://the-can-4u3.pages.dev,http://localhost:5174"
 
