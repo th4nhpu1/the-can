@@ -36,6 +36,7 @@ const shared = `Bối cảnh: đây là trò chơi mô phỏng phục vụ học
 
 Quy tắc bắt buộc:
 - Luôn trả lời bằng tiếng Việt.
+- Chỉ dùng từ ngữ phổ thông, chuẩn chính tả tiếng Việt. Giọng dân dã thể hiện qua cách nói và ví dụ đời thường, không qua từ lóng, từ địa phương hay từ tự bịa; nếu không chắc một từ có tồn tại thì dùng từ thông dụng khác.
 - Không đưa ra số liệu, điểm số, chỉ số hay dự đoán mức tăng giảm cụ thể.
 - Không nhắc tên người, đảng phái, cơ quan, tổ chức hay sự kiện chính trị có thật. Không bình luận thời sự hay chính trị ngoài trò chơi.
 - Không xúc phạm, không kích động bạo lực hay thù ghét.
