@@ -15,7 +15,7 @@ GEMINI_THINKING_BUDGET = ""
 # For Gemini 3.x: "minimal" or "low" keeps replies fast and stops thinking tokens from cutting the answer short.
 GEMINI_THINKING_LEVEL = "low"
 # Comma-separated list of sites allowed to call this Worker. Add the address where the game is hosted.
-ALLOWED_ORIGINS = "https://the-can-chia-banh.tealcargo.chatgpt.site,http://localhost:5174"
+ALLOWED_ORIGINS = "https://the-can-chia-banh.tealcargo.chatgpt.site,https://the-can-4u3.pages.dev,http://localhost:5174"
 
 # The API key is a secret, never put it in this file:
 #   npx wrangler secret put GEMINI_API_KEY
