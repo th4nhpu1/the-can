@@ -8,3 +8,5 @@ Thumbs.db
 .openai/
 .impeccable/live/
 work/
+.wrangler/
+worker/.dev.vars

@@ -163,3 +163,29 @@ dialog ul{padding-left:18px}
 #restart{margin-top:10px}#resign{margin-top:10px}
 .groups-grid small{display:block;color:var(--muted);font-size:11px}
 @media(max-width:1100px){.journal-actions{grid-column:2;grid-row:6}}
+
+/* Optional AI talk with interest groups, below the choices. */
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.talk{margin:0 0 18px;border:1px solid var(--choice-border);border-radius:var(--radius-button);background:var(--paper)}
+.talk summary{cursor:pointer;padding:12px 16px;min-height:44px;font-weight:600;font-size:13px}
+.talk[open] summary{border-bottom:1px solid var(--line)}
+.talk-groups{display:flex;flex-wrap:wrap;gap:8px;padding:12px 16px 4px}
+.talk-groups button{border:1px solid var(--choice-border);background:transparent;border-radius:999px;padding:6px 12px;min-height:36px;font-size:12px}
+.talk-groups button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.talk-groups button:hover:not([aria-pressed="true"]){background:var(--choice-hover)}
+.talk-log{list-style:none;margin:0;padding:4px 16px;max-height:300px;overflow:auto}
+.talk-log li{padding:9px 0;border-bottom:1px solid var(--line);font-size:13px;line-height:1.7}
+.talk-log li:last-child{border-bottom:0}
+.talk-log b{display:block;font-size:11px;color:var(--muted);font-weight:700}
+.talk-log li.model{font:italic 13px/1.75 var(--font-title)}
+.talk-log li.model b{font-family:var(--font-body);font-style:normal;color:#8d6533}
+.talk-log li.pending{color:var(--muted)}
+.talk-form{display:flex;gap:8px;padding:8px 16px}
+.talk-form input{flex:1;min-width:0;font:inherit;font-size:13px;border:1px solid var(--choice-border);border-radius:var(--radius-button);padding:10px 12px;background:var(--bg);color:var(--ink)}
+.talk-form input:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.talk-form button{padding:10px 18px}
+.talk-form button:disabled,.talk-form input:disabled{opacity:.5}
+#talk-note{margin:0;padding:0 16px 12px;font-size:11px}
+.ai-report{margin-top:22px;padding:16px 18px;border-left:3px solid var(--gold);background:var(--bg);border-radius:4px}
+.ai-report h3{margin-top:0}
+.ai-report #ai-report-body p{font:15px/1.85 var(--font-title)}
