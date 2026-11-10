@@ -189,3 +189,8 @@ dialog ul{padding-left:18px}
 .ai-report{margin-top:22px;padding:16px 18px;border-left:3px solid var(--gold);background:var(--bg);border-radius:4px}
 .ai-report h3{margin-top:0}
 .ai-report #ai-report-body p{font:15px/1.85 var(--font-title)}
+
+/* Once play begins, the groups panel replaces the intro text in the left column. */
+.intro.playing>:not(.reactions){display:none}
+.intro.playing .reactions{margin-top:26px}
+.intro.playing .small{max-width:none}
