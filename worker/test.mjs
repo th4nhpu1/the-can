@@ -60,6 +60,18 @@ upstream = { ok: false, status: 500, body: { error: 'boom' } }; r = await req('/
 upstream = { ok: true, status: 200, body: { candidates: [] } }; r = await req('/chat', chat()); assert.equal(r.status, 502);
 upstream = { ok: true, status: 200, body: { candidates: [{ content: { parts: [{ text: 'ok' }] } }] } };
 
+// Fallback model: used when the main model is overloaded, without thinking settings.
+const realFetch = globalThis.fetch;
+globalThis.fetch = async (url, init) => { calls.push({ url, init, body: JSON.parse(init.body) }); const busy = url.includes('gemini-test:'); return { ok: !busy, status: busy ? 503 : 200, json: async () => ({ candidates: [{ content: { parts: [{ text: 'dự phòng' }] } }] }), text: async () => 'high demand' }; };
+const fb = { ...env, GEMINI_FALLBACK_MODEL: 'gemini-lite' };
+r = await req('/chat', chat(), { e: fb });
+assert.equal(r.status, 200); assert.equal((await r.json()).text, 'dự phòng');
+assert.match(calls.at(-2).url, /gemini-test:/); assert.match(calls.at(-1).url, /gemini-lite:/); assert.equal(calls.at(-1).body.generationConfig.thinkingConfig, undefined);
+globalThis.fetch = async (url, init) => { calls.push({ url, init, body: JSON.parse(init.body) }); return { ok: false, status: 503, json: async () => ({}), text: async () => 'busy' }; };
+r = await req('/chat', chat(), { e: fb }); assert.equal(r.status, 502);
+globalThis.fetch = realFetch;
+const n = calls.length; r = await req('/chat', chat()); assert.equal(r.status, 200); assert.equal(calls.length, n + 1);
+
 // Rate limit per IP
 let last;
 for (let i = 0; i < 21; i++) last = await req('/chat', chat(), { sameIp: '192.0.2.7' });
@@ -67,4 +79,4 @@ assert.equal(last.status, 429);
 assert.equal((await req('/chat', chat(), { sameIp: '192.0.2.8' })).status, 200);
 
 console.log = origLog;
-console.log(JSON.stringify({ worker: 'pass', cors: 'pass', chat: 'pass', report: 'pass', validation: 'pass', rateLimit: 'pass' }));
+console.log(JSON.stringify({ worker: 'pass', cors: 'pass', chat: 'pass', report: 'pass', validation: 'pass', fallback: 'pass', rateLimit: 'pass' }));

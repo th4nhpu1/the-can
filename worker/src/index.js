@@ -60,22 +60,36 @@ ${decisions.join('\n') || '- (không có)'}`;
   return { system: reportSystemPrompt(), contents: [{ role: 'user', parts: [{ text: prompt }] }], maxTokens: 3000, timeoutMs: 27000 };
 }
 
-async function callGemini(env, req) {
-  const model = env.GEMINI_MODEL || 'gemini-3.5-flash';
+// Time kept back for the fallback model when the main one is overloaded or slow.
+const FALLBACK_RESERVE_MS = 6000;
+
+async function generate(env, req, model, thinkingConfig, timeoutMs) {
   const generationConfig = { temperature: 0.6, maxOutputTokens: req.maxTokens };
-  if (env.GEMINI_THINKING_BUDGET !== undefined && env.GEMINI_THINKING_BUDGET !== '') generationConfig.thinkingConfig = { thinkingBudget: Number(env.GEMINI_THINKING_BUDGET) };
-  else if (env.GEMINI_THINKING_LEVEL) generationConfig.thinkingConfig = { thinkingLevel: env.GEMINI_THINKING_LEVEL };
+  if (thinkingConfig) generationConfig.thinkingConfig = thinkingConfig;
   const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`, {
     method: 'POST',
     headers: { 'content-type': 'application/json', 'x-goog-api-key': env.GEMINI_API_KEY },
     body: JSON.stringify({ systemInstruction: { parts: [{ text: req.system }] }, contents: req.contents, generationConfig }),
-    signal: AbortSignal.timeout(req.timeoutMs || 18000),
-  }).catch(e => { console.log('Gemini fetch failed', String(e)); return null; });
+    signal: AbortSignal.timeout(timeoutMs),
+  }).catch(e => { console.log('Gemini fetch failed', model, String(e)); return null; });
   if (!res) return null;
-  if (!res.ok) { console.log('Gemini error', res.status, (await res.text()).slice(0, 500)); return null; }
+  if (!res.ok) { console.log('Gemini error', model, res.status, (await res.text()).slice(0, 500)); return null; }
   const data = await res.json();
   const out = (data.candidates?.[0]?.content?.parts || []).map(p => p.text || '').join('').trim();
   return out || null;
+}
+
+async function callGemini(env, req) {
+  const model = env.GEMINI_MODEL || 'gemini-3.5-flash';
+  const fallback = env.GEMINI_FALLBACK_MODEL && env.GEMINI_FALLBACK_MODEL !== model ? env.GEMINI_FALLBACK_MODEL : '';
+  let thinkingConfig = null;
+  if (env.GEMINI_THINKING_BUDGET !== undefined && env.GEMINI_THINKING_BUDGET !== '') thinkingConfig = { thinkingBudget: Number(env.GEMINI_THINKING_BUDGET) };
+  else if (env.GEMINI_THINKING_LEVEL) thinkingConfig = { thinkingLevel: env.GEMINI_THINKING_LEVEL };
+  const total = req.timeoutMs || 18000, start = Date.now();
+  const out = await generate(env, req, model, thinkingConfig, fallback ? total - FALLBACK_RESERVE_MS : total);
+  if (out || !fallback) return out;
+  // The fallback is a light model: no thinking settings, whatever time is left.
+  return generate(env, req, fallback, null, Math.max(FALLBACK_RESERVE_MS, total - (Date.now() - start)));
 }
 
 function cors(origin, env) {
