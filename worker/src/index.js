@@ -57,7 +57,7 @@ Tình hình cuối nhiệm kỳ: ${statsLine(body.stats)}.
 Mức ủng hộ của các nhóm: ${support}.
 ${body.contested ? 'Quyết định gây tranh cãi nhất: ' + text(body.contested, 300) + '\n' : ''}Các quyết định gần nhất:
 ${decisions.join('\n') || '- (không có)'}`;
-  return { system: reportSystemPrompt(), contents: [{ role: 'user', parts: [{ text: prompt }] }], maxTokens: 3000 };
+  return { system: reportSystemPrompt(), contents: [{ role: 'user', parts: [{ text: prompt }] }], maxTokens: 3000, timeoutMs: 27000 };
 }
 
 async function callGemini(env, req) {
