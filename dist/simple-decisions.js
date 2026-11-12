@@ -32,6 +32,8 @@ const rows=[
 ['Cơ hội từ công nghệ','Công nghệ mở ra việc làm và cách kinh doanh mới. Cả nước nên đầu tư vào đâu?','Xây các trung tâm công nghệ lớn','Giúp nhiều vùng có mạng và biết sử dụng','Hỗ trợ doanh nghiệp nhỏ bán hàng và làm việc trực tuyến'],
 ['Để lại điều gì cho tương lai?','Nhiệm kỳ sắp kết thúc. Bạn muốn dành nguồn lực còn lại cho ưu tiên nào?','Nâng mức sống và cơ hội cho người dân','Giữ tiền và năng lực sản xuất cho những năm sau']
 ];
+rows[29][0]='Dành nguồn lực cho tương lai';
+rows[29][1]='Giữa nhu cầu hiện tại và khả năng phát triển lâu dài, bạn muốn dành nguồn lực cho ưu tiên nào?';
 const effects={
 0:[[4,2,7,-11],[-3,-3,-2,12]],1:[[0,2,5,7]],3:[[9,-2,7,-9],[7,2,5,-10]],4:[[-3,8,2,-8]],
 6:[[2,7,5,-10],[10,-5,8,-11]],7:[[3,1,1,-6]],9:[[-4,-4,1,8],[1,-5,7,9]],10:[[1,-3,8,8]],
