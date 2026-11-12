@@ -1,0 +1,11 @@
+{
+  "name": "the-can",
+  "private": true,
+  "type": "module",
+  "engines": { "node": "22.x" },
+  "scripts": {
+    "dev": "node --env-file-if-exists=.env.local scripts/dev.mjs",
+    "test": "node check.cjs",
+    "test:api": "node tests/api.test.mjs"
+  }
+}

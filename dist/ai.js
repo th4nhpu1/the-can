@@ -1,6 +1,6 @@
 'use strict';
 // Optional AI layer: talk with interest groups before a decision, and a news-style ending report.
-// Everything here degrades to written text when AI_ENDPOINT is empty or the Worker fails.
+// Everything here degrades to written text when AI_ENDPOINT is empty or the API fails.
 const AI_QUESTIONS_PER_TURN=3;
 let chat={turn:-1,group:0,messages:[],asked:0,busy:false},reportRequest=null;
 function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c])}

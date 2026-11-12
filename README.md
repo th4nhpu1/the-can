@@ -17,19 +17,15 @@ Game mô phỏng quyết định kinh tế bằng tiếng Việt, phục vụ đ
 
 ## Chạy trên máy
 
-Đây là website HTML/CSS/JavaScript tĩnh, không cần cài thư viện hay bước build.
+Cài Node.js 22 trở lên, sau đó chạy `npm.cmd run dev` và mở `http://127.0.0.1:5174`.
+Lệnh này chạy cả website lẫn API. Không cần bước build hoặc cài thư viện.
+Để gọi Gemini thật, chép `.env.example` thành `.env.local` và điền khóa riêng tư.
 
-Mở `dist/index.html` trực tiếp trong trình duyệt, hoặc dùng Python:
+## Triển khai website và AI
 
-```sh
-python -m http.server 5174 --directory dist
-```
-
-Sau đó mở `http://localhost:5174`. Google Fonts cần Internet; khi ngoại tuyến trình duyệt dùng phông dự phòng.
-
-## Bật AI (tùy chọn)
-
-Game chạy đầy đủ khi không có AI. Để bật khung chat và bản tin AI (dùng Gemini), triển khai Cloudflare Worker trong thư mục `worker/` rồi điền địa chỉ vào `dist/ai-config.js`. Xem [worker/README.md](worker/README.md).
+Website và AI được cấu hình để chạy chung trên Vercel, qua `/api/chat` và `/api/report`.
+Xem [DEPLOYMENT.md](DEPLOYMENT.md) để cấu hình Vercel, biến môi trường và kiểm tra sau triển khai.
+Khóa Gemini chỉ đặt ở máy chủ; không đặt trong `dist/`.
 
 ## Kiểm tra
 
@@ -39,7 +35,7 @@ Cài Node.js rồi chạy từ thư mục dự án:
 node check.cjs
 ```
 
-Bộ kiểm tra bao gồm các phương án 2–4 lựa chọn, lưu và khôi phục, chính sách nhiều năm, hệ quả chậm, điều kiện kết thúc, hiển thị cộng/trừ sau lượt, phản ứng nhóm lợi ích, từ chức, mất lòng dân, chuyển đổi bản lưu cũ 500 ván mô phỏng, khung chat AI và Worker (dùng Gemini giả lập).
+Bộ kiểm tra bao gồm các phương án 2–4 lựa chọn, lưu và khôi phục, chính sách nhiều năm, hệ quả chậm, điều kiện kết thúc, hiển thị cộng/trừ sau lượt, phản ứng nhóm lợi ích, từ chức, mất lòng dân, chuyển đổi bản lưu cũ 500 ván mô phỏng, khung chat AI và API Vercel (dùng Gemini giả lập).
 
 ## Cấu trúc
 
@@ -49,9 +45,10 @@ Bộ kiểm tra bao gồm các phương án 2–4 lựa chọn, lưu và khôi p
 | `dist/style.css` | Hệ thống màu, chữ và bố cục đáp ứng |
 | `dist/game.js` | Vòng chơi, trạng thái, lưu tiến trình và kết thúc |
 | `dist/groups.js` | Nhóm lợi ích, câu phản ứng và cách tính mức ủng hộ |
-| `dist/ai-config.js` | Địa chỉ Worker AI; để trống thì tắt AI |
+| `dist/ai-config.js` | Địa chỉ API cùng miền (`/api`); để trống thì tắt AI |
 | `dist/ai.js` | Khung chat với các nhóm và bản tin AI cuối nhiệm kỳ |
-| `worker/` | Cloudflare Worker gọi Gemini và hướng dẫn triển khai |
+| `api/`, `server/` | API Vercel gọi Gemini; khóa và lời nhắc chỉ nằm ở máy chủ |
+| `vercel.json`, `DEPLOYMENT.md` | Cấu hình và hướng dẫn triển khai Vercel |
 | `dist/policies.js` | Dữ liệu tác động chính sách và hệ quả |
 | `dist/simple-decisions.js` | Câu hỏi dễ hiểu và các phương án bổ sung |
 | `PRODUCT.md` | Mục đích và yêu cầu sản phẩm |

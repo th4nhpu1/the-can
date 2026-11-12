@@ -10,4 +10,5 @@ Thumbs.db
 work/
 .wrangler/
 worker/.dev.vars
+.vercel/
 /wrangler.jsonc

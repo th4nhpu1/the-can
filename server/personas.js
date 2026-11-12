@@ -1,4 +1,4 @@
-// Personas for the five interest groups. Order must match `groups` in dist/groups.js.
+// Server-only personas for the five interest groups. Order matches dist/groups.js.
 export const personas = [
   {
     name: 'Công nhân',

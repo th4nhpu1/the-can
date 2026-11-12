@@ -3,8 +3,11 @@
   "configurations": [
     {
       "name": "the-can",
-      "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "5174", "--directory", "dist"],
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "--env-file-if-exists=.env.local",
+        "scripts/dev.mjs"
+      ],
       "port": 5174
     }
   ]

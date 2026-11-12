@@ -1,2 +1,2 @@
 require('./macro-check.cjs');
-process.on('beforeExit',()=>{if(process.exitCode||globalThis.__workerDone)return;globalThis.__workerDone=true;require('child_process').execFileSync(process.execPath,['worker/test.mjs'],{stdio:'inherit'})});
+process.on('beforeExit',()=>{if(process.exitCode||globalThis.__apiDone)return;globalThis.__apiDone=true;require('child_process').execFileSync(process.execPath,['tests/api.test.mjs'],{stdio:'inherit'})});
