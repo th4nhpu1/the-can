@@ -2,7 +2,7 @@
 
 Game mô phỏng quyết định kinh tế bằng tiếng Việt, phục vụ đồ án môn kinh tế chính trị. Người chơi điều hành một nền kinh tế giả lập qua 30 quyết định trong 10 năm, cân nhắc động lực sản xuất, đời sống, công bằng và ngân sách.
 
-**Chơi trực tuyến:** [Thế Cân](https://the-can-chia-banh.tealcargo.chatgpt.site)
+**Chơi trực tuyến:** [Thế Cân](https://thecanktccml.vercel.app/)
 
 ## Cách chơi
 
