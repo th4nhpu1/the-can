@@ -6,6 +6,7 @@ Game mô phỏng quyết định kinh tế bằng tiếng Việt, phục vụ đ
 
 ## Cách chơi
 
+- Vào web là trang chủ. Bấm “Bắt đầu nhiệm kỳ” để chơi; nếu đang chơi dở, trang chủ cho tiếp tục hoặc bắt đầu nhiệm kỳ mới. Bấm tên Thế Cân ở đầu trang để quay về trang chủ.
 - Mỗi câu có 2–4 phương án; chọn bằng nút bấm hoặc bàn phím (Tab, Enter, phím cách).
 - Không có thao tác vuốt. Phương án không tiết lộ trước mức tăng/giảm.
 - Sau mỗi lượt, thanh chỉ số hiển thị thay đổi thực tế, gồm cả hệ quả đến hạn.
@@ -44,6 +45,7 @@ Bộ kiểm tra bao gồm các phương án 2–4 lựa chọn, lưu và khôi p
 | `dist/index.html` | Giao diện trò chơi |
 | `dist/style.css` | Hệ thống màu, chữ và bố cục đáp ứng |
 | `dist/game.js` | Vòng chơi, trạng thái, lưu tiến trình và kết thúc |
+| `dist/home.js` | Trang chủ: bắt đầu, tiếp tục hoặc xem lại nhiệm kỳ đã lưu |
 | `dist/groups.js` | Nhóm lợi ích, câu phản ứng và cách tính mức ủng hộ |
 | `dist/ai-config.js` | Địa chỉ API cùng miền (`/api`); để trống thì tắt AI |
 | `dist/ai.js` | Khung chat với các nhóm và bản tin AI cuối nhiệm kỳ |

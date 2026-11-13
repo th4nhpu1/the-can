@@ -110,7 +110,7 @@ Bảng màu ấm, trầm; màu sắc tạo thứ bậc đọc và báo trạng t
 
 Noto Serif mang giọng kể cho tiêu đề; Be Vietnam Pro giữ điều khiển và nội dung tiếng Việt dễ đọc. Hai phông được tải qua Google Fonts; dự phòng hiện có lần lượt là serif và sans-serif.
 
-- Tiêu đề mở đầu dùng display; ở ngưỡng tablet hiện tại chuyển về cỡ cố định (60px) và bị ẩn trên màn hình nhỏ.
+- Tiêu đề trang chủ dùng display; ở chiều rộng không quá (850px) chuyển về cỡ cố định (44px).
 - Tiêu đề hộp thoại dùng headline; câu hỏi dùng title; tên hội đồng dùng Noto Serif bán đậm (18px).
 - Nội dung thẻ dùng card-body; nút lựa chọn dùng choice. Nhãn thời gian dùng label.
 - Nhãn danh mục và trạng thái dùng cỡ (10px); dòng chân thẻ dùng cỡ (9px). Chữ phụ thông thường dùng (11–12px). Đây là số đo của bản hiện tại, không phải chứng nhận toàn bộ giao diện đã đạt chuẩn khả năng đọc.
@@ -118,9 +118,9 @@ Noto Serif mang giọng kể cho tiêu đề; Be Vietnam Pro giữ điều khi�
 
 ## Layout
 
-Khung chính rộng tối đa (1450px), lề hai bên (5%). Màn hình lớn có ba vùng: giới thiệu, bàn chơi ở giữa, định hướng và nhật ký bên phải. Bàn chơi nằm trong cột giữa (360–470px), khoảng cột (5%).
+Khung chính rộng tối đa (1450px), lề hai bên (5%). Màn hình lớn có ba vùng: định hướng và nhật ký, bàn chơi ở giữa, tiếng nói các nhóm. Phần giới thiệu nằm ở trang chủ, không còn trong bàn chơi. Bàn chơi nằm trong cột giữa (360–470px), khoảng cột (5%).
 
-Tại chiều rộng không quá (1100px), bố cục còn hai cột và vùng theo dõi chuyển xuống dưới, khoảng cột (4%). Định hướng và nhật ký được chia thành hai cột riêng trong vùng này. Tại chiều rộng không quá (850px), phần giới thiệu ẩn, bàn chơi trở thành một cột rộng tối đa (450px), lề ngang (6%). Mỗi câu có 2–4 phương án, xếp hai cột và cách nhau (12px); ở chiều rộng không quá (600px), chuyển thành một cột.
+Tại chiều rộng không quá (1100px), bố cục còn hai cột và vùng theo dõi chuyển xuống dưới, khoảng cột (4%). Định hướng và nhật ký được chia thành hai cột riêng trong vùng này. Tại chiều rộng không quá (850px), bàn chơi trở thành một cột rộng tối đa (450px), lề ngang (6%). Mỗi câu có 2–4 phương án, xếp hai cột và cách nhau (12px); ở chiều rộng không quá (600px), chuyển thành một cột.
 
 Thanh chỉ số có bốn cột. Trên màn nhỏ, định hướng và nhật ký xếp dọc, không cần cuộn ngang để đọc. Nhật ký cuộn dọc, cao tối đa (320px) ở màn lớn và (360px) ở màn nhỏ. Các cột dùng minmax(0, 1fr) để nội dung dài không làm tràn bố cục.
 
@@ -164,9 +164,15 @@ Bốn thanh với biểu tượng nét, tên và giá trị hiện tại. Track 
 
 Hướng dẫn, góc kiến thức và kết thúc nhiệm kỳ dùng hộp thoại nền giấy sáng; bề rộng tối đa (540px), chiều cao tối đa (85dvh), nội dung dài cuộn được. Nút chơi lại dùng button-primary; nút văn bản giữ nền trong suốt, gạch chân khi hover.
 
+### Trang chủ
+
+Màn hình đầu tiên khi vào web; bàn chơi ẩn cho đến khi người chơi bắt đầu hoặc tiếp tục. Cột trái có tiêu đề display, câu dẫn serif (20px), đoạn giới thiệu và nút chính cao (52px). Nút chính đổi nhãn theo bản lưu: “Bắt đầu nhiệm kỳ”, “Tiếp tục nhiệm kỳ” hoặc “Xem báo cáo nhiệm kỳ”; khi đã có bản lưu, thêm nút viền “Bắt đầu nhiệm kỳ mới”, hỏi xác nhận nếu nhiệm kỳ còn dang dở.
+
+Cột phải là hình chiếc cân nét mực: một đĩa đặt chiếc bánh, một đĩa đặt ngọn lửa vàng đất, chú thích “Chia bánh” và “Giữ lửa”. Mỗi lần trang chủ hiện ra, đòn cân dao động rồi về thế cân trong (3,6 giây); đây là chuyển động tự chạy duy nhất của trang và bị tắt khi người dùng chọn giảm chuyển động. Bên dưới là ba đoạn tóm tắt luật chơi, phân cách bằng một đường kẻ. Ở chiều rộng không quá (850px), mọi thứ xếp một cột, nút rộng hết khung và hình cân nằm sau nút.
+
 ### Điều hướng
 
-Tên Thế Cân và biểu tượng cân là liên kết đầu trang. Khẩu hiệu có chân nhỏ cạnh tên, ẩn ở màn nhỏ; nút trợ giúp nằm bên phải. Chân trang gọn, chứa góc kiến thức và chú thích mô hình học tập.
+Tên Thế Cân và biểu tượng cân là liên kết đầu trang, đưa về trang chủ mà không tải lại. Ở trang chủ, hai nút “Chơi lại” và “Từ chức” được ẩn. Khẩu hiệu có chân nhỏ cạnh tên, ẩn ở màn nhỏ; nút trợ giúp nằm bên phải. Chân trang gọn, chứa góc kiến thức và chú thích mô hình học tập.
 
 Các phương án là nút gốc của trình duyệt. Sau khi chọn, tiêu đề câu tiếp theo nhận focus; Tab chuyển đến các nút và Enter hoặc phím cách chọn. Không có phím mũi tên chọn thay hoặc sự kiện vuốt trên thẻ.
 

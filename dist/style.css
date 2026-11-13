@@ -17,24 +17,11 @@ header{height:100px;margin:0 5%;border-bottom:1px solid var(--line);display:flex
 .quiet:active{background:var(--choice-hover)}
 #help{display:flex;align-items:center;gap:10px;white-space:nowrap}
 #help span{display:grid;place-items:center;width:23px;height:23px;border:1px solid var(--line);border-radius:50%}
-main{max-width:1600px;margin:auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(360px,470px) minmax(0,1.2fr);grid-template-areas:"journal game discussion" "intro intro intro";gap:40px 3%;padding:38px 5% 25px;align-items:start}
+main{max-width:1600px;margin:auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(360px,470px) minmax(0,1.2fr);grid-template-areas:"journal game discussion";gap:40px 3%;padding:38px 5% 25px;align-items:start}
 main>*{min-width:0}
 .game{grid-area:game}
 .discussion{grid-area:discussion}
-.intro{grid-area:intro;padding-top:28px;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px 32px;align-items:center}
-.intro h1{font:400 clamp(48px,5.2vw,76px)/1.16 var(--font-title);letter-spacing:-2px;margin:26px 0}
-.intro h1 em{color:#a56932;font-weight:400}
-.intro>p{font-size:15px;line-height:1.9}
-.intro-line{width:36px;height:1px;background:var(--gold);margin:24px 0}
 .small{font-size:12px;line-height:1.9;color:var(--muted)}
-.intro .small{max-width:42ch}
-.intro h1{grid-row:1/3;font-size:clamp(40px,4vw,60px);margin:0}
-.intro>p{margin:0}
-.intro-line{display:none}
-.intro .note{grid-column:2/4;max-width:none}
-#city{margin:32px 0 10px;max-width:260px}
-#city svg{fill:none;stroke:#9aab98;stroke-width:1.3}
-.note{font-size:11px}
 .status{display:flex;justify-content:space-between;gap:12px;font-size:10px;letter-spacing:.6px;margin:0 0 24px}
 .status>span:first-child{font-weight:700}
 .status>span:last-child{color:var(--muted);letter-spacing:0;white-space:nowrap}
@@ -111,8 +98,8 @@ dialog ul{padding-left:18px}
 .result-grid strong{float:right;font-variant-numeric:tabular-nums}
 .finished .card{opacity:.7}
 @media(min-width:1500px){main{padding-top:55px}}
-@media(max-width:1100px){main{gap:4%;grid-template-columns:minmax(0,1fr) minmax(340px,440px)}.journal{grid-column:1/-1;padding-top:24px;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;column-gap:40px}.policy-heading,#policy-list,#pending-count{grid-column:1}.journal-heading,.journal>.small,.journal ol,#restart{grid-column:2}.journal-heading{grid-row:1;align-self:start;margin-top:0}.journal>.small{grid-row:2;margin:0 0 12px}.journal ol{grid-row:3/6;max-height:320px}#restart{grid-row:6;justify-self:start}.intro h1{font-size:60px}}
-@media(max-width:850px){header{height:76px;margin:0 6%}.brand{font-size:21px}.brand span{display:none}main{display:block;padding:22px 6%}.intro{display:none}.game{max-width:450px;margin:auto}.status{margin-bottom:20px;font-size:10px}.meters{gap:12px}.timeline{margin-top:20px}.card{padding:17px 23px 12px;min-height:382px}.portrait{margin-top:16px;height:90px;width:90px}.card h3{margin-top:19px}.choices button{min-height:100px}.journal{display:block;margin-top:28px;padding-top:24px}.journal ol{max-height:360px}.journal-heading{margin-top:28px}.journal>.small{margin:10px 0 0}#policy-list li{padding:12px 0}footer{padding:10px 6% 24px;flex-wrap:wrap;font-size:10px}footer>span:last-child{width:100%}.journal-heading h2{font-size:17px}}
+@media(max-width:1100px){main{gap:4%;grid-template-columns:minmax(0,1fr) minmax(340px,440px)}.journal{grid-column:1/-1;padding-top:24px;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;column-gap:40px}.policy-heading,#policy-list,#pending-count{grid-column:1}.journal-heading,.journal>.small,.journal ol,#restart{grid-column:2}.journal-heading{grid-row:1;align-self:start;margin-top:0}.journal>.small{grid-row:2;margin:0 0 12px}.journal ol{grid-row:3/6;max-height:320px}#restart{grid-row:6;justify-self:start}}
+@media(max-width:850px){header{height:76px;margin:0 6%}.brand{font-size:21px}.brand span{display:none}main{display:block;padding:22px 6%}.game{max-width:450px;margin:auto}.status{margin-bottom:20px;font-size:10px}.meters{gap:12px}.timeline{margin-top:20px}.card{padding:17px 23px 12px;min-height:382px}.portrait{margin-top:16px;height:90px;width:90px}.card h3{margin-top:19px}.choices button{min-height:100px}.journal{display:block;margin-top:28px;padding-top:24px}.journal ol{max-height:360px}.journal-heading{margin-top:28px}.journal>.small{margin:10px 0 0}#policy-list li{padding:12px 0}footer{padding:10px 6% 24px;flex-wrap:wrap;font-size:10px}footer>span:last-child{width:100%}.journal-heading h2{font-size:17px}}
 @media(max-width:360px){.brand{font-size:19px}.brand svg{width:30px}.brand{gap:8px}#help{gap:6px;font-size:11px}.status{font-size:9px}.card{padding-inline:18px}.choices button{padding:12px 10px;grid-template-columns:16px minmax(0,1fr)}.choices small{font-size:10px}.meter{font-size:10px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 /* Scoped emphasis: decisions, active policies, and term journal. */
@@ -201,26 +188,15 @@ dialog ul{padding-left:18px}
 .discussion .talk:not([hidden])+.reactions{margin-top:24px}
 .discussion .reactions-heading{flex-wrap:wrap;gap:6px 12px}
 .discussion #groups p{overflow-wrap:anywhere}
-.intro #city{grid-column:3;grid-row:2;margin:0;width:100%;max-width:220px;justify-self:end}
 @media(max-width:1100px){
-  main{grid-template-columns:minmax(340px,1.2fr) minmax(0,1fr);grid-template-areas:"game discussion" "journal journal" "intro intro";gap:32px 4%}
-  .intro h1{font-size:48px}
+  main{grid-template-columns:minmax(340px,1.2fr) minmax(0,1fr);grid-template-areas:"game discussion" "journal journal";gap:32px 4%}
 }
 @media(max-width:850px){
   main{display:flex;flex-direction:column;gap:28px}
-  .game,.discussion,.journal,.intro{width:100%;max-width:540px;margin:0 auto}
+  .game,.discussion,.journal{width:100%;max-width:540px;margin:0 auto}
   .game{order:0}
   .discussion{order:1}
   .journal{order:2}
-  .intro{order:3;display:grid;grid-template-columns:1fr 1fr;gap:20px;padding-top:24px}
-  .intro h1{grid-row:auto;font-size:44px}
-  .intro .small{max-width:none}
-  .intro #city{grid-column:2;grid-row:2}
-  .intro .note{grid-column:1/-1}
-}
-@media(max-width:400px){
-  .intro{grid-template-columns:1fr}
-  .intro #city{grid-column:1;grid-row:auto;justify-self:start}
 }
 
 /* A decision workspace: keep the actions in view, scroll supporting detail. */
@@ -267,7 +243,7 @@ header{position:sticky;top:0;z-index:10;background:var(--bg)}
 #groups li{padding:8px 0}
 #groups p{margin:4px 0;line-height:1.5}
 @media(min-width:851px){
-  main{max-width:1800px;padding:16px 4% 24px;grid-template-columns:minmax(0,1fr) minmax(360px,1.5fr) minmax(0,1.15fr);grid-template-areas:"journal game discussion" "intro intro intro";grid-template-rows:calc(100dvh - 104px) auto;gap:32px 28px}
+  main{max-width:1800px;padding:16px 4% 24px;grid-template-columns:minmax(0,1fr) minmax(360px,1.5fr) minmax(0,1.15fr);grid-template-areas:"journal game discussion";grid-template-rows:calc(100dvh - 104px);gap:32px 28px}
   .game{height:100%;min-height:0;display:flex;flex-direction:column}
   .game>*{flex-shrink:0}
   .game .deck{flex:1 1 auto;min-height:140px}
@@ -300,3 +276,51 @@ header{position:sticky;top:0;z-index:10;background:var(--bg)}
   .hint{display:none}
   .choices button{min-height:52px;padding:8px 12px}
 }
+
+/* Home screen: shown on arrival; the game stays hidden until the player starts or resumes a term. */
+.home{display:none;max-width:1450px;margin:0 auto;padding:clamp(28px,6vh,64px) 5% 32px;min-height:calc(100dvh - 148px);grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);grid-template-rows:1fr auto;gap:clamp(28px,5vh,52px) 6%;align-items:center}
+.at-home .home{display:grid}
+.at-home main,.at-home .session-actions{display:none}
+.home h1{font:400 clamp(48px,5.2vw,76px)/1.16 var(--font-title);letter-spacing:-2px;margin:0 0 24px}
+.home h1 em{color:#a56932}
+.home-tagline{font:400 20px/1.6 var(--font-title);margin:0 0 16px}
+.home-about{font-size:15px;line-height:1.8;color:var(--muted);max-width:46ch;margin:0 0 28px}
+.home-actions{display:flex;flex-wrap:wrap;gap:12px}
+.home-actions button{min-height:52px;padding:14px 28px;border-radius:var(--radius-button);font-size:14px;font-weight:600}
+.home-actions .secondary{background:transparent;border:1px solid var(--ink);transition:background .15s}
+.home-actions .secondary:hover{background:var(--choice-hover)}
+.home-actions .secondary:active{background:#d5dfce}
+.home-note{font-size:12px;line-height:1.9;color:var(--muted);margin:16px 0 0}
+.home-scale{width:100%;max-width:480px;justify-self:center}
+.home-scale svg{display:block;width:100%;height:auto;overflow:visible;fill:none;stroke:var(--ink);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.home-scale .paper{fill:var(--bg)}
+.home-scale .beam{stroke-width:2.2}
+.home-scale .slice{fill:#e4cc99}
+.home-scale .flame{fill:#f0dfbc;stroke:#a56932}
+.home-scale .ember{fill:var(--gold);stroke:none}
+.home-scale text{font:italic 400 19px var(--font-title);fill:var(--muted);stroke:none}
+/* The one moment of motion: the beam swings and settles level each time the home screen appears. */
+.scale-beam{transform-origin:220px 70px;animation:scale-settle 3.6s cubic-bezier(.37,0,.63,1) both}
+.scale-pan{animation:scale-hang 3.6s cubic-bezier(.37,0,.63,1) both}
+.scale-pan.left{transform-origin:80px 70px}
+.scale-pan.right{transform-origin:360px 70px}
+@keyframes scale-settle{0%{transform:rotate(-7deg)}24%{transform:rotate(4.6deg)}46%{transform:rotate(-2.6deg)}66%{transform:rotate(1.3deg)}84%{transform:rotate(-.5deg)}100%{transform:rotate(0)}}
+@keyframes scale-hang{0%{transform:rotate(7deg)}24%{transform:rotate(-4.6deg)}46%{transform:rotate(2.6deg)}66%{transform:rotate(-1.3deg)}84%{transform:rotate(.5deg)}100%{transform:rotate(0)}}
+.home-facts{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px 40px;border-top:1px solid var(--line);padding-top:24px}
+.home-facts h2{font:600 18px/1.4 var(--font-title);margin:0 0 6px}
+.home-facts p{font-size:13px;line-height:1.75;color:var(--muted);max-width:40ch;margin:0}
+@media(max-width:850px){
+  .home{grid-template-columns:minmax(0,1fr);grid-template-rows:none;min-height:0;max-width:540px;padding:24px 6% 28px;gap:28px}
+  .home h1{font-size:44px;letter-spacing:-1.2px;margin-bottom:16px}
+  .home-tagline{font-size:18px}
+  .home-about{margin-bottom:24px}
+  .home-actions button{flex:1 1 100%}
+  .home-scale{max-width:320px}
+  .home-facts{grid-template-columns:minmax(0,1fr)}
+  .home-facts p{max-width:none}
+}
+@media(max-width:600px){
+  .at-home header{min-height:60px;flex-wrap:nowrap}
+  .at-home .brand,.at-home .header-actions{width:auto}
+}
+@media(prefers-reduced-motion:reduce){.scale-beam,.scale-pan{animation:none}}
