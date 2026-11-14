@@ -27,6 +27,7 @@ Game câu hỏi chính sách, khởi đầu từ cảm hứng Lapse. Người ch
 - 30 quyết định trong 10 năm giả lập, mỗi câu có 2–4 phương án, chỉ chọn bằng nút bấm; bàn phím dùng Tab, Enter hoặc phím cách.
 - Quyết định vĩ mô về thuế, tài khóa, tín dụng, đầu tư, lao động, nhân lực, an sinh và phát triển vùng.
 - Bốn chỉ số tình hình chung: Đời sống, Sản xuất, Công bằng, Ngân sách.
+- Trước mỗi nhiệm kỳ, người chơi chọn một trong bốn hoàn cảnh xuất phát: Thời kỳ thuận lợi (dễ), Nền móng ổn định (vừa, mặc định), Tăng trưởng nóng (khó), Hậu khủng hoảng (rất khó). Mỗi hoàn cảnh có chỉ số và mức ủng hộ ban đầu khác nhau, không chỉ cộng trừ đều, để cùng một cách chia có thể hợp ở hoàn cảnh này nhưng không hợp ở hoàn cảnh khác.
 - Tác động phải đủ rõ và có đánh đổi; có hệ quả chậm và chính sách ảnh hưởng qua nhiều năm.
 - Không tiết lộ trước số tăng/giảm ở phương án hoặc trong nhật ký. Sau khi chọn, cạnh thanh trạng thái hiển thị biến động thực tế của lượt vừa rồi, gồm cả hệ quả đến hạn. Chính sách dài hạn chỉ ghi thời gian, như “Ảnh hưởng kéo dài n năm”.
 - Có lưu tiến trình, nhật ký và báo cáo cuối nhiệm kỳ.

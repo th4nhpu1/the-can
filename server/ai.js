@@ -59,7 +59,8 @@ export function buildReport(body) {
   if (!reason) throw new BadRequest('endReason');
   const support = list(body.support, personas.length).map((v, i) => `${personas[i].name} ${int(v, 0, 100)}/100`).join(', ');
   const decisions = list(body.decisions || [], 12).map(d => `- ${text(d?.title, 120)}: ${text(d?.text, 160)}`);
-  const prompt = `Cách nhiệm kỳ kết thúc: ${reason}, sau ${int(body.turn, 0, 30)} quyết định.
+  const scenario = body.scenario === undefined ? '' : text(body.scenario, 300);
+  const prompt = `${scenario ? 'Hoàn cảnh xuất phát của nhiệm kỳ: ' + scenario + '\n' : ''}Cách nhiệm kỳ kết thúc: ${reason}, sau ${int(body.turn, 0, 30)} quyết định.
 Tình hình cuối nhiệm kỳ: ${statsLine(body.stats)}.
 Mức ủng hộ của các nhóm: ${support}.
 ${body.contested ? 'Quyết định gây tranh cãi nhất: ' + text(body.contested, 300) + '\n' : ''}Các quyết định gần nhất:

@@ -324,3 +324,19 @@ header{position:sticky;top:0;z-index:10;background:var(--bg)}
   .at-home .brand,.at-home .header-actions{width:auto}
 }
 @media(prefers-reduced-motion:reduce){.scale-beam,.scale-pan{animation:none}}
+/* Starting-context picker, shown in the info dialog before every new term. */
+.scenarios{display:grid;gap:10px;margin:18px 0 12px}
+.scenario{display:grid;gap:8px;text-align:left;background:transparent;border:1px solid var(--choice-border);border-radius:var(--radius-button);padding:14px 16px;color:var(--ink);transition:background .15s}
+.scenario:hover{background:var(--choice-hover)}
+.scenario:active{background:#d5dfce}
+.scenario-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.scenario-head b{font:600 17px/1.4 var(--font-title)}
+.level{flex:none;font-size:10px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;border-radius:999px;padding:3px 10px;border:1px solid currentColor}
+.level-calm{color:#4d7a5e}.level-steady{color:var(--muted)}.level-boom{color:#a56932}.level-recovery{color:var(--red)}
+.scenario-brief{font-size:12px;line-height:1.7;color:var(--muted)}
+.scenario-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px 14px;font-size:10px;color:var(--muted);font-variant-numeric:tabular-nums}
+.scenario-stats i{display:block;height:3px;background:var(--meter-track);margin:4px 0 2px;overflow:hidden}
+.scenario-stats em{display:block;height:100%;background:var(--ink)}
+.ending-scenario{font-size:12px;color:var(--muted);margin:-6px 0 0}
+.result-grid small{display:block;color:var(--muted);font-size:11px;margin-top:2px}
+@media(max-width:600px){dialog{padding:26px 20px}.scenario-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}

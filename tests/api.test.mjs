@@ -58,6 +58,10 @@ const report = { endReason: 'overthrow', turn: 14, stats: [30, 70, 20, 50], supp
 r = await req('/report', report); assert.equal(r.status, 200); c = calls.at(-1);
 assert.match(c.body.contents[0].parts[0].text, /mất lòng dân/); assert.match(c.body.contents[0].parts[0].text, /Nông dân 25\/100/); assert.match(c.body.systemInstruction.parts[0].text, /phóng viên/);
 r = await req('/report', { ...report, endReason: 'win' }); assert.equal(r.status, 400);
+assert.doesNotMatch(calls.at(-1).body.contents[0].parts[0].text, /Hoàn cảnh xuất phát/);
+r = await req('/report', { ...report, scenario: 'Hậu khủng hoảng (rất khó): ngân sách cạn' }); assert.equal(r.status, 200);
+assert.match(calls.at(-1).body.contents[0].parts[0].text, /Hoàn cảnh xuất phát của nhiệm kỳ: Hậu khủng hoảng/);
+r = await req('/report', { ...report, scenario: 5 }); assert.equal(r.status, 400);
 
 // Other failures
 r = await req('/other', {}); assert.equal(r.status, 404);
